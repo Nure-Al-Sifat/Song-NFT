@@ -1,0 +1,85 @@
+.chart-page {
+  padding: 25px;
+  h1 {
+    color: #fff;
+  }
+  .charts-button {
+    margin-top: 15px;
+    width: 100%;
+    @include flexVertical;
+    justify-content: space-between;
+    .custom-button-left {
+      @include flexVertical;
+      .left-btn {
+        margin-right: 10px;
+      }
+    }
+    .custom-button-right {
+      @include flexVertical;
+    }
+  }
+  .chart-title {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+
+    .table-box {
+      margin: 20px auto;
+
+      .table-row {
+        height: 79px;
+        background: #2d2c31;
+        border-radius: 10px;
+        display: table;
+        width: 100%;
+        margin: 10px auto;
+
+        padding: 12px 0;
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        box-shadow: 0 1px 4px 0px rgba(0, 0, 50, 0.3);
+      }
+      .table-head {
+        background: #0000008f;
+        box-shadow: none;
+        color: #fff;
+        font-weight: 600;
+        height: 45px;
+      }
+      .table-head .table-cell {
+        border-right: none;
+      }
+      .table-cell {
+        display: table-cell;
+
+        text-align: center;
+        padding: 4px 0;
+        vertical-align: middle;
+      }
+      .first-cell {
+        text-align: left;
+        padding-left: 10px;
+        @include flexVertical;
+      }
+      .first-cell img {
+        margin: 0px 15px;
+      }
+      .first-cell-content .secound-p {
+        font-size: 10px;
+      }
+      .secondary-cell {
+        width: 14%;
+      }
+      a {
+        text-decoration: none;
+        color: #555;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .table-row {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+.Profile-main {
+  width: 95%;
+  margin: auto;
+  @include flexVertical;
+  flex-direction: column;
+  .cover-img {
+    width: 100%;
+    height: 250px;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .profile-details {
+    height: 100%;
+    width: 100%;
+    @include flexVertical;
+    flex-direction: column;
+    margin-top: -60px;
+    img {
+      width: 152px;
+      height: 122px;
+      //   border: 3px solid #222126;
+      border-radius: 20px;
+    }
+    .profile-name {
+      display: flex;
+      margin-top: 10px;
+      margin-left: 15px;
+      img {
+        margin-left: 10px;
+        width: 24.89px;
+        height: 24.89px;
+      }
+    }
+    .profile-links {
+      display: flex;
+      margin-top: 10px;
+      .address-display {
+        width: 135px;
+        height: 32px;
+        background: #331545;
+        border-radius: 4px;
+        @include flexCenter;
+        padding: 0px 5px;
+        margin-right: 10px;
+        img {
+          width: 10.09px;
+          height: 17px;
+          margin: 5px;
+        }
+        p {
+          font-size: 15px;
+          font-weight: 500;
+        }
+      }
+      a {
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+        @include flexCenter;
+        border-radius: 5px;
+        .twitter-img {
+          width: 18.76px;
+          height: 14.76px;
+        }
+        .instagram-img {
+          width: 18.76px;
+          height: 18.76px;
+        }
+      }
+    }
+    .profile-bio {
+      margin-top: 12px;
+      width: 450px;
+      height: 36px;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 18px;
+      text-align: center;
+    }
+  }
+  .profile-button {
+    @include flexVertical;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 15px;
+    .listed-collection {
+      width: 225px;
+      height: 50px;
+      border-radius: 10px;
+      background: #ab45e7;
+      cursor: pointer;
+      margin-right: 15px;
+      @include flexCenter;
+    }
+    .sold-collection {
+      width: 210px;
+      height: 50px;
+      border-radius: 10px;
+      background: #38373c;
+      cursor: pointer;
+      margin-right: 15px;
+      @include flexCenter;
+    }
+    .new-collection {
+      width: 165px;
+      height: 50px;
+      border-radius: 10px;
+      background: #38373c;
+      cursor: pointer;
+      @include flexCenter;
+    }
+  }
+}

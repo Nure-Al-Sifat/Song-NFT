@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { ethers } from "ethers";
+import React, { useState } from "react";
+// import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 
 function TopSearchBar() {
   const { ethers } = require("ethers");
-  const [wallet, setWallet] = useState([]);
+  // const [wallet, setWallet] = useState([]);
 
   const connectWallet = async () => {
     const connectButton = document.getElementById("connect");
@@ -21,8 +21,6 @@ function TopSearchBar() {
     const signer = provider.getSigner();
     const account = await signer.getAddress();
     console.log("Account:", await account);
-
-    connectButton.innerHTML = wallet;
 
     connectButton.innerHTML =
       account[0] +

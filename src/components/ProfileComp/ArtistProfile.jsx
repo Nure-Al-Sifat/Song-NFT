@@ -1,6 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { ethers } from "ethers";
+import Web3Modal from "web3modal";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 
 function ArtistProfile() {
+  useEffect(() => {
+    loadProfile();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const providerOptions = {
+    walletconnect: {
+      package: WalletConnectProvider,
+      options: {
+        infuraId: "2958fe8f2fdf48cabe5f5aed0042b8c7",
+      },
+    },
+  };
+
+  const loadProfile = async () => {
+    const web3Modal = new Web3Modal({
+      network: "mainnet",
+      cacheProvider: true,
+      providerOptions,
+    });
+
+    const instance = await web3Modal.connect();
+
+    const provider = new ethers.providers.Web3Provider(instance);
+    const signer = provider.getSigner();
+    const account = await signer.getAddress();
+
+    const wallet = document.getElementById("wallet");
+    if (account) {
+      wallet.innerHTML =
+        account[0] +
+        account[1] +
+        account[2] +
+        account[3] +
+        account[4] +
+        account[5] +
+        "..." +
+        account[38] +
+        account[39] +
+        account[40] +
+        account[41];
+    }
+  };
   return (
     <>
       <div className="Profile-main">
@@ -17,7 +62,7 @@ function ArtistProfile() {
           <div className="profile-links">
             <div className="address-display">
               <img src="assets/ether-white.png" alt="" />
-              <p>0x69.....2613</p>
+              <p id="wallet">0x69.....2613</p>
             </div>
             <a href="https://twitter.com/" style={{ background: "#005677" }}>
               <img

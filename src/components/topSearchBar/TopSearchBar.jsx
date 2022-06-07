@@ -1,6 +1,7 @@
 import React from "react";
 // import { ethers } from "ethers";
 import Web3Modal from "web3modal";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 
 function TopSearchBar() {
   const { ethers } = require("ethers");
@@ -9,9 +10,19 @@ function TopSearchBar() {
   const connectWallet = async () => {
     const connectButton = document.getElementById("connect");
 
+    const providerOptions = {
+      walletconnect: {
+        package: WalletConnectProvider,
+        options: {
+          infuraId: "2958fe8f2fdf48cabe5f5aed0042b8c7",
+        },
+      },
+    };
+
     const web3Modal = new Web3Modal({
-      network: "mainnet", // optional
-      cacheProvider: true, // optional
+      network: "mainnet",
+      cacheProvider: true,
+      providerOptions,
     });
     console.log(web3Modal);
 

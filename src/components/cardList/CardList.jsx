@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import trendingVideos from "../../demoData/trendingVideos";
 import CardHeaderTitle from "../cardHeaderTitle/CardHeaderTitle";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/pagination";
-import { FreeMode, Pagination } from "swiper";
+import "swiper/modules/free-mode/free-mode.min.css";
+// import { FreeMode, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
+import "swiper/swiper.min.css";
+import "swiper/modules/pagination/pagination.min.css";
 
 function CardList() {
   const [items] = useState(trendingVideos);
@@ -23,14 +23,27 @@ function CardList() {
 
       <div className="card-list">
         <Swiper
-          slidesPerView={3}
-          spaceBetween={30}
+          breakpoints={{
+            640: {
+              width: 640,
+              slidesPerView: 1,
+            },
+            768: {
+              width: 768,
+              slidesPerView: 2,
+            },
+            1500: {
+              width: 1500,
+              slidesPerView: 4,
+            },
+          }}
+          spaceBetween={5}
           freeMode={true}
-          // pagination={{
-          //   clickable: true,
-          // }}
+          pagination={{
+            clickable: true,
+          }}
           ref={swiperRef}
-          modules={[FreeMode, Pagination]}
+          // modules={[FreeMode, Pagination]}
           className="mySwiper"
         >
           {items.map((item, index) => (

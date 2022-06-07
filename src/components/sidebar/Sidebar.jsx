@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 import { NavLink, Link } from "react-router-dom";
 
 function Sidebar() {
   const [profile, setProfile] = useState([]);
   useEffect(() => {
     loadProfile();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const providerOptions = {
+    walletconnect: {
+      package: WalletConnectProvider, // required
+      options: {
+        infuraId: "2958fe8f2fdf48cabe5f5aed0042b8c7", // required
+      },
+    },
+  };
 
   const loadProfile = async () => {
     const web3Modal = new Web3Modal({
       network: "mainnet", // optional
       cacheProvider: true, // optional
+      providerOptions,
     });
 
     const instance = await web3Modal.connect();
